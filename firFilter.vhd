@@ -1,17 +1,28 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-entity fir_filter_4 is
+
+constant C0:=0.0135;
+constant C1:=0.0785;
+constant C2:=0.2409;
+constant C3:=0.3344;
+constant C4:=0.2409;
+constant C5:=0.0785;
+constant C6:=0.0135;
+entity fir_filter is
 port (
-  i_clk        : in  std_logic;
-  i_rstb       : in  std_logic;
+  clock       : in  std_logic;
+  reset       : in  std_logic;
   -- coefficient
-  i_coeff_0    : in  std_logic_vector( 7 downto 0);
-  i_coeff_1    : in  std_logic_vector( 7 downto 0);
-  i_coeff_2    : in  std_logic_vector( 7 downto 0);
-  i_coeff_3    : in  std_logic_vector( 7 downto 0);
+  C0   : in  std_logic_vector( 15 downto 0);
+  C1   : in  std_logic_vector( 15 downto 0);
+  C2   : in  std_logic_vector( 15 downto 0);
+  C3   : in  std_logic_vector( 15 downto 0);  
+  C4   : in  std_logic_vector( 15 downto 0);
+  C5   : in  std_logic_vector( 15 downto 0);
+  C6   : in  std_logic_vector( 15 downto 0);
   -- data input
-  i_data       : in  std_logic_vector( 7 downto 0);
+  input_data      : in  std_logic_vector( 15 downto 0);
   -- filtered data 
-  o_data       : out std_logic_vector( 9 downto 0));
-end fir_filter_4;
+  y       : out std_logic_vector( 9 downto 0));
+end fir_filter;
