@@ -25,3 +25,10 @@ entity fir_filter is
     y         : out std_logic_vector(9 downto 0));   // still to size
   );
 end fir_filter;
+architecture firFilter_arc of firFilter is
+
+  signal clock : std_logic;
+
+begin
+
+end firFilter_arc;

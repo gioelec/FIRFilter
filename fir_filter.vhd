@@ -27,8 +27,6 @@ entity fir_filter is
 end fir_filter;
 architecture fir_filter_arc of fir_filter is
 
-	signal clock : std_logic;
-
 begin
 
 end fir_filter_arc;
