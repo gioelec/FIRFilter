@@ -1,0 +1,15 @@
+\section{Introduction}
+In signal processing, a finite impulse response (FIR) filter is a filter whose impulse response, or response to any other finite length input, is of finite duration, because it settles to zero in finite time. 
+The impulse response of an Nth-order discrete-time FIR filter lasts exactly N + 1 samples (from first nonzero element through last nonzero element) before it then settles to zero.
+For a causal discrete-time FIR filter of order N, each value of the output sequence is a weighted sum of the most recent input values:
+\begin{center}
+$$ y[n]=\sum_{i=0}^{N}c{_{i}}\cdot x[n-i]$$
+\end{center}
+\subsection{Filter Design}
+When a particular frequency response is desired, several different design methods are possible, for example:
+\begin{itemize}
+  \item {Window design method:} we first design an ideal IIR filter and then truncate the result by multiplying it with a finite length window function.
+  \item {Frequency Sampling method:} this technique is the most direct technique imaginable when a desired frequency response has been specified. It consists simply of uniformly sampling the desired frequency response, and performing an inverse DFT to obtain the corresponding (finite) impulse response.
+  \item {Parks-McClellan method:} The Remez exchange algorithm is commonly used to find an optimal equiripple set of coefficients. Here the user specifies a desired frequency response, a weighting function for errors from this response, and a filter order N. The algorithm then finds the set of N+1 coefficients that minimize the maximum deviation from the ideal. 
+\end{itemize}
+\subsection{Applications}Finite-impulse response (FIR) digital filter is widely used in several digital signal processing applications, such as speech processing, loud speaker equalization, echo cancellation, adaptive noise cancellation, and various communication applications, including software-defined radio (SDR) and so on. Many of these applications require FIR filters of large order to meet the stringent frequency specifications. Very often these filters need to support high sampling rate for high-speed digital communication. The number of multiplications and additions required for each filter output, however, increases linearly with the filter order. 
