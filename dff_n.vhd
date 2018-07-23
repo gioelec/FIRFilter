@@ -1,40 +1,36 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all;        -- for addition & counting
-use ieee.numeric_std.all;               -- for type conversions
-use ieee.math_real.all;                 -- for the ceiling and log constant in std
+library IEEE;
+use IEEE.std_logic_1164.all;
+use work.mytypes_pkg.all;
+use IEEE.numeric_std.all;
 
-entity dff_n is
-	generic (
-			Nbit 	: positive := 16
+
+
+entity dff_N is	
+	port(
+			Clk : 	in std_ulogic;
+			Reset : in std_ulogic;
+			d : 	in std_logic_vector(N-1 downto 0);
+			q : 	out std_logic_vector(N-1 downto 0)
 		);
+end entity dff_N;
+
+
+architecture struct of dff_N is
+component dff is
 	port (
-			clock_n : in std_ulogic;
-			reset_n : in std_ulogic;
-			din	  	: in std_ulogic_vector(Nbit downto 1);
-			dout  	: out std_ulogic_vector(Nbit downto 1)
+			Clk : 	in std_ulogic;
+			Reset : in std_ulogic;
+			d : 	in std_logic;
+			q : 	out std_logic
 	);
-end dff_n;
-
-
-architecture dff_n_arc of dff_n is
-
-	component dff is
-	port (
-		clk 	: 	in std_ulogic;
-		reset 	: 	in std_ulogic;
-		d 		:	in std_ulogic;
-		q   	:	out std_ulogic
-	);
-	end component dff;
+end component dff;
 
 begin
-	GEN: for i in 0 to Nbit-1 generate
-		DFF_MAP:	dff port map ( 	clk => clk_n, 
-									reset => reset_n, 
-									d => din(i), 
-									q => dout(i)
+	GEN: for i in 0 to N-1 generate
+		DFF_MAP:	dff port map ( 	Clk => Clk, 
+								   	Reset => Reset, 
+									d => d(i), 
+									q => q(i)
 								);
 	end generate GEN;
-end dff_n_arc;
-
+end architecture struct;
