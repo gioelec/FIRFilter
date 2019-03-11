@@ -11,7 +11,7 @@ entity fir is
     Clk : in std_logic; 
     Reset : in std_logic;  
     X : in signed(N-1 downto 0); 
-    Y : out signed(N-1 downto 0)
+    Y : out signed(2  *N-1 downto 0)
   );
 end fir;
 
@@ -71,16 +71,9 @@ dff6 : DFF port map(Q6,Reset,Clk,SUM_OUT5);
 process(Clk,Reset)
 begin
     if(rising_edge(Clk)) then
-        Y <= SUM_OUT6(N-1 downto 0);
+        Y <= SUM_OUT6(2*N-1 downto 0);
     elsif Reset = '1' then
         Y <= (others=> '0');
-    --    MUL_OUT6 <= (others=> '0');
-    --    MUL_OUT5 <= (others=> '0');
-    --    MUL_OUT4 <= (others=> '0');
-    --    MUL_OUT3 <= (others=> '0');
-    --    MUL_OUT2 <= (others=> '0');
-    --    MUL_OUT1 <= (others=> '0');
-    --    MUL_OUT0 <= (others=> '0');
     end if;
 end process;
     

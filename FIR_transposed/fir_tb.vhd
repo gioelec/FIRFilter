@@ -12,7 +12,7 @@ ARCHITECTURE behavior OF tb IS
   signal Clk : std_logic := '0';
   signal Reset: std_logic:= '0';
   signal X : signed(15 downto 0) := (others => '0');
-  signal Y : signed(15 downto 0) := (others => '0');
+  signal Y : signed(31 downto 0) := (others => '0');
   constant Clk_period : time := 10 ns;
   file infile : text;
   file outfile : text;

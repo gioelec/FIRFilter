@@ -9,3 +9,5 @@ for n=8:1:length(x)
     end
     y(n) = sum;
 end
+
+out = FIR_filter(x,coeff)
