@@ -21,12 +21,11 @@ Q <= qt;
 
 process(Clk,Reset) 
 begin 
-  	if ( rising_edge(Clk) ) then 
-    	qt <= D;
-	end if;
 	if Reset = '1' then
 		qt <= (others=> '0');
-  	end if;       
+  	elsif ( rising_edge(Clk) ) then 
+    	qt <= D;
+	end if;
 end process; 
 
 end Behavioral;
