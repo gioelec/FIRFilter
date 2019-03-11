@@ -3,11 +3,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity fir is
+  generic (
+    constant N: integer := 16;
+    constant taps: integer := 7
+  );
   port(   
     Clk : in std_logic; 
     Reset : in std_logic;  
-    X : in signed(15 downto 0); 
-    Y : out signed(15 downto 0)
+    X : in signed(N-1 downto 0); 
+    Y : out signed(N-1 downto 0)
   );
 end fir;
 
@@ -15,16 +19,17 @@ architecture Behavioral of fir is
 
 component DFF is 
    port(
-      Q : out signed(31 downto 0);    -- 
+      Q : out signed(2*N-1 downto 0);    -- 
       Reset : in std_logic;  
-      Clk :in std_logic;              -- Clock input
-      D :in  signed(31 downto 0)      -- Data input from the MUL_OUT block.
+      Clk :in std_logic;                  -- Clock input
+      D :in  signed(2*N-1 downto 0)       -- Data input from the MUL_OUT block.
    );
 end component;  
   
-signal C0,C1,C2,C3,C4,C5,C6 : signed(15 downto 0) := (others => '0');
-signal MUL_OUT0,MUL_OUT1,MUL_OUT2,MUL_OUT3,MUL_OUT4,MUL_OUT5,MUL_OUT6,SUM_OUT1,SUM_OUT2,SUM_OUT3,SUM_OUT4,SUM_OUT5,SUM_OUT6 : signed(31 downto 0) := (others => '0');
-signal Q1,Q2,Q3,Q4,Q5,Q6 : signed(31 downto 0) := (others => '0');
+signal C0,C1,C2,C3,C4,C5,C6 : signed(N-1 downto 0) := (others => '0');
+signal MUL_OUT0,MUL_OUT1,MUL_OUT2,MUL_OUT3,MUL_OUT4,MUL_OUT5,MUL_OUT6: signed(2*N-1 downto 0) := (others => '0');
+signal SUM_OUT1,SUM_OUT2,SUM_OUT3,SUM_OUT4,SUM_OUT5,SUM_OUT6 : signed(2*N-1 downto 0) := (others => '0');
+signal Q1,Q2,Q3,Q4,Q5,Q6 : signed(2*N-1 downto 0) := (others => '0');
 
 begin
 
@@ -66,7 +71,7 @@ dff6 : DFF port map(Q6,Reset,Clk,SUM_OUT5);
 process(Clk,Reset)
 begin
     if(rising_edge(Clk)) then
-        Y <= SUM_OUT6(15 downto 0);
+        Y <= SUM_OUT6(N-1 downto 0);
     elsif Reset = '1' then
         Y <= (others=> '0');
     --    MUL_OUT6 <= (others=> '0');

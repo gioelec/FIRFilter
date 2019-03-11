@@ -23,7 +23,8 @@ process(Clk,Reset)
 begin 
   	if ( rising_edge(Clk) ) then 
     	qt <= D;
-	elsif Reset = '1' then
+	end if;
+	if Reset = '1' then
 		qt <= (others=> '0');
   	end if;       
 end process; 
