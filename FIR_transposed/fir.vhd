@@ -11,7 +11,7 @@ entity fir is
     Clk : in std_logic; 
     Reset : in std_logic;  
     X : in signed(N-1 downto 0); 
-    Y : out signed(2  *N-1 downto 0)
+    Y : out signed(2*N-1 downto 0)
   );
 end fir;
 
@@ -19,10 +19,10 @@ architecture Behavioral of fir is
 
 component DFF is 
    port(
-      Q : out signed(2*N-1 downto 0);    -- 
-      Reset : in std_logic;  
+      Q : out signed(2*N-1 downto 0);     -- Output of the DFF sized with 31 bits 
+      Reset : in std_logic;               -- Reset signal 
       Clk :in std_logic;                  -- Clock input
-      D :in  signed(2*N-1 downto 0)       -- Data input from the MUL_OUT block.
+      D :in  signed(2*N-1 downto 0)       -- Data input of the DFF
    );
 end component;  
   

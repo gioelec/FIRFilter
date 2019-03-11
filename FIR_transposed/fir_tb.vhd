@@ -15,11 +15,11 @@ END tb;
 ARCHITECTURE behavior OF tb IS 
   signal Clk : std_logic := '0';
   signal Reset: std_logic:= '0';
-  signal X : signed(N-1 downto 0) := (others => '0');
-  signal Y : signed(2*N-1 downto 0) := (others => '0');
+  signal X : signed(N-1 downto 0) := (others => '0');       -- input signal 
+  signal Y : signed(2*N-1 downto 0) := (others => '0');     -- output signal
   constant Clk_period : time := 10 ns;
-  file infile : text;
-  file outfile : text;
+  file infile : text;                                       
+  file outfile : text;                                     
 BEGIN
 
     -- Instantiate the Unit Under Test (UUT)
@@ -43,8 +43,8 @@ BEGIN
    stim_proc: process
       variable v_ILINE     : line;          -- input line for reading from file
       variable v_OLINE     : line;          -- output line for writing on file
-      variable v_INPUT     : integer;       --variable representing the number read from ILINE
-      variable i           : integer:=0;    --variable used in the loop 
+      variable v_INPUT     : integer;       -- variable representing the number read from ILINE
+      variable i           : integer:=0;    -- variable used in the loop 
    begin
       file_open(infile, "C:\Users\gioel\OneDrive\Desktop\input_vectors.txt",  read_mode);
       file_open(outfile, "C:\Users\gioel\OneDrive\Desktop\output_results.txt", write_mode);
@@ -66,8 +66,6 @@ BEGIN
           write(v_OLINE,to_integer(signed(Y)));
           writeline(outfile,v_OLINE);  
       end loop;
-      
-   
       file_close(infile);
       file_close(outfile);
       wait;
