@@ -13,8 +13,8 @@ ENTITY tb IS
 END tb;
 
 ARCHITECTURE behavior OF tb IS 
-  signal Clk : std_logic := '0';
-  signal Reset: std_logic:= '0';
+  signal Clk : std_ulogic := '0';
+  signal Reset: std_ulogic:= '0';
   signal X : signed(N-1 downto 0) := (others => '0');       -- input signal 
   signal Y : signed(2*N-1 downto 0) := (others => '0');     -- output signal
   constant Clk_period : time := 10 ns;

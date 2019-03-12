@@ -8,8 +8,8 @@ entity fir is
     constant taps: integer := 7
   );
   port(   
-    Clk : in std_logic; 
-    Reset : in std_logic;  
+    Clk : in std_ulogic; 
+    Reset : in std_ulogic;  
     X : in signed(N-1 downto 0); 
     Y : out signed(2*N-1 downto 0)
   );

@@ -5,8 +5,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity DFF is 
    port(
       Q : out signed(31 downto 0);      --output connected to the adder
-      Reset :in std_logic;      -- Clock input
-      Clk :in std_logic;      -- Clock input
+      Reset :in std_ulogic;      -- Clock input
+      Clk :in std_ulogic;      -- Clock input
       D :in  signed(31 downto 0)      -- Data input from the MCM block.
    );
 end DFF;
