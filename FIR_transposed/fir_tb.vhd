@@ -7,8 +7,8 @@ use ieee.std_logic_textio.all;
 
 ENTITY tb IS
   generic (
-    constant N: integer := 16;
-    constant taps: integer := 7
+    constant N: integer := 16;      -- number of bits of the input data and coefficients
+    constant taps: integer := 7     -- number of taps of the filter
   );
 END tb;
 
@@ -59,13 +59,7 @@ BEGIN
         write(v_OLINE,to_integer(signed(Y)));
         writeline(outfile,v_OLINE); --output the new data
       end loop;
-      --IS THIS NEEDED?????????????????????????????????????
-      X <= (others => '0');
-      for i in 0 to taps-1 loop    --this loop is to avoid to loose the results in delay line
-          wait for clk_period*1;
-          write(v_OLINE,to_integer(signed(Y)));
-          writeline(outfile,v_OLINE);  
-      end loop;
+      -- last output data are voluntarily ignored, they would be the result of supposing 0 as input
       file_close(infile);
       file_close(outfile);
       wait;
