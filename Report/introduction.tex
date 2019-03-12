@@ -2,9 +2,10 @@
 In signal processing, a finite impulse response (FIR) filter is a filter whose impulse response, or response to any other finite length input, is of finite duration, because it settles to zero in finite time. 
 The impulse response of an Nth-order discrete-time FIR filter lasts exactly N + 1 samples (from first nonzero element through last nonzero element) before it then settles to zero.
 For a causal discrete-time FIR filter of order N, each value of the output sequence is a weighted sum of the most recent input values:
-\begin{center}
-$$ y[n]=\sum_{i=0}^{N}c{_{i}}\cdot x[n-i]$$
-\end{center}
+\begin{equation}
+	\label{eq:general}
+	 y[n]=\sum_{i=0}^{N}c{_{i}}\cdot x[n-i]
+\end{equation}
 \subsection{Filter Design}
 When a particular frequency response is desired, several different design methods are possible, for example:
 \begin{itemize}
