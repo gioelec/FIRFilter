@@ -7,7 +7,7 @@ The coefficients that are doubles had to be converted to integer on 16 bits thro
 \label{sec:sizing}
 To realize the transposed architecture the result had to be sized:
 \begin{equation}
-	\left \lceil log_2(2^{b-1})*\sum_{i=0}^{N} coeff_i\right \rceil	
+	\left \lceil log_2(2^{b-1})*\sum_{i=0}^{N} coeff_i\right \rceil	+1
 	\label{eq:size}
 \end{equation}
-Equation \ref{eq:size} returned a value for the output dimension of 31 bits.
+Equation \ref{eq:size} returned a value for the output dimension of 32 bits.
