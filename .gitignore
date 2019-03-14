@@ -1,1 +1,7 @@
 .asv
+*.txt
+Report/out/*
+*.aux
+*.xml
+*.bib
+*.log
