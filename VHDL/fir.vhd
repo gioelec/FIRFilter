@@ -70,10 +70,10 @@ dff6 : DFF port map(Q6,Reset,Clk,SUM_OUT5);
 --an output produced at every positive edge of clock cycle.
 process(Clk,Reset)
 begin
-    if(rising_edge(Clk)) then
-        Y <= SUM_OUT6(2*N-1 downto 0);
-    elsif Reset = '1' then
+    if Reset = '1' then
         Y <= (others=> '0');
+    elsif(rising_edge(Clk)) then
+        Y <= SUM_OUT6(2*N-1 downto 0);
     end if;
 end process;
     
