@@ -21,7 +21,7 @@ This structure is very similar at the first look w.r.t. the previous one but in 
     \centering
     \includegraphics[scale=0.45]{images/transposed.jpg}    
     \caption{scheme of transposed form}
-    \label{fig:my_label}
+    \label{fig:transposed}
 \end{figure}
 \subsection{Symmetric taps (linear phase)}
 FIR filters are often designed to have symmetry in the filter taps so we can  exploit this symmetry in order to reduce the number of multiplications.
@@ -32,7 +32,7 @@ With this type of implementation the number of multiplications is reduced to $\l
     \centering
     \includegraphics[scale=0.45]{images/symmetryc.jpg}    
     \caption{direct form with symmetric taps}
-    \label{fig:my_label}
+    \label{fig:symmetric}
 \end{figure}
 \subsection{Cascade form}
 We express the transfer function as products of second-order polynomial system functions via factorization:
@@ -45,7 +45,7 @@ Assuming that N is even, this implementation needs N storage elements, $\frac{3N
     \centering
     \includegraphics[scale=0.35]{images/cascade.jpg}    
     \caption{cascade form}
-    \label{fig:my_label}
+    \label{fig:cascade}
 \end{figure}
 To save computational complexity, we express (\ref{eq:1}) as:
 \begin{equation} \label{eq:2}
@@ -56,5 +56,5 @@ where $G=\beta_{01}\beta_{02} \cdot\cdot\cdot\beta_{0M_{c}}$ ,$\beta_{1i}'=\beta
     \centering
     \includegraphics[scale=0.35]{images/cascadeoptimised.jpg}    
     \caption{cascade form with lower complexity}
-    \label{fig:my_label}
+    \label{fig:cascade_opt}
 \end{figure}
