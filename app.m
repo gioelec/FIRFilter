@@ -17,3 +17,14 @@ x_test = x_i';
 % b_o = ceil(log2(2^(b - 1) * sum(abs(c_i))))+1; %output bits needed
 
 % a = dec2twos(o,16)
+
+
+F = 1;
+fc = 100;
+x = [-5:1/fc:5];
+y = sinc(pi*F*x);
+plot(y);
+
+yy = fft(y,512);
+m = abs(yy)
+plot(m)
