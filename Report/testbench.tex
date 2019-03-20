@@ -1,8 +1,8 @@
 \section{Test Plan}
-In order to test the effectiveness of the filter the mathematical limits given by the size of the input and on the coefficient values had to be tested.
-To ease the testing of the filter with different inputs the test bench reads/writes data from/to file.
+In order to test the effectiveness of the filter the mathematical limits, given by the size of the input and on the coefficient values, had to be tested.
+To ease the testing of the filter with different inputs the test bench inputs and outputs data from/to file.
 \subsection{Size limits}
-To stress out the size limits computed in section \ref{sec:sizing} the filter has been feeded with maximum value in modulus i.e. ($-2^(b-1)= -32768 $) repeated continuosly and checked if the output corresponded to the value given by applying in Matlab expression \ref{eq:general}, the results can be seen in the following figure:
+To stress out the size limits computed in section \ref{sec:sizing} the filter was fed with the maximum value in modulus (i.e. $-2^{b-1}= -32768 $) repeated continuosly and checked if the output corresponded to the value given by applying in Matlab expression \ref{eq:general}, the results can be seen in the following figure:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{./images/simul32768.PNG}
@@ -11,7 +11,7 @@ To stress out the size limits computed in section \ref{sec:sizing} the filter ha
 \end{figure}
 The network at regime settles to 1073938432 that corresponds to the value returned by Matlab.
 \subsection{Prove of correctness}
-In order to check if the filter performed the convolution expressed in equation \ref{eq:general} a random input was tested and compared against the output of matlab performing the same operation. The results once the network is at regime are matched by the output produced by matlab.
+In order to check if the filter performed the convolution expressed in equation \ref{eq:general} a random input was tested and compared against the output of matlab performing the same operation. The results once the network is at regime are matched by the output produced by matlab convolution.
 \subsection{Filtering}
 As input to the network a square wave was given as input with a period of 14 samples. In Figure \ref{fig:filt} the effect of filtering is highlighted where the first harmonic frequency is kept while others are cut converging in a sine wave.
 \begin{figure}[H]

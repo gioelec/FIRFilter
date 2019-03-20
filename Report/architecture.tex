@@ -8,7 +8,7 @@ To fulfill the constraints we can:\\
 \end{itemize}
 Suppose we want to realize a filter of order N.
 \subsection{Direct form}
-This structure requires N memory locations for storing previous inputs and in terms of complexity it does N+1 multiplications and  N additions.  For building this structure we simply use the definition \ref{eq:general}
+This structure requires N memory locations for storing previous inputs and in terms of complexity it does N+1 multiplications and  N additions.  For building this structure we simply use the definition of Equation \ref{eq:general}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{images/direct.jpeg}    
@@ -35,7 +35,7 @@ With this type of implementation the number of multiplications is reduced to $\l
     \label{fig:symmetric}
 \end{figure}
 \subsection{Cascade form}
-We express the transfer function as products of second-order polynomial system functions via factorization:
+We express the transfer function as product of second-order polynomial system functions via factorization:
 \begin{equation} \label{eq:1}
 H(z)=\frac{y[n]}{x[n]} =\sum_{i=0}^{N}c_{i}z^{-i}= \prod_{i=1}^{M_{c}}(\beta_{0i}+\beta_{1i}z^{-1}+\beta_{2i}z^{-2})
 \end{equation}
@@ -47,11 +47,11 @@ Assuming that N is even, this implementation needs N storage elements, $\frac{3N
     \caption{cascade form}
     \label{fig:cascade}
 \end{figure}
-To save computational complexity, we express (\ref{eq:1}) as:
+To save computational complexity, we express Equation (\ref{eq:1}) as:
 \begin{equation} \label{eq:2}
 H(z)= G\prod_{i=1}^{M_{c}}(1+\beta_{1i}'z^{-1}+\beta_{2i}'z^{-2})
 \end{equation}
-where $G=\beta_{01}\beta_{02} \cdot\cdot\cdot\beta_{0M_{c}}$ ,$\beta_{1i}'=\beta_{1i}/\beta_{0i}$ , $i= 1,2,\cdot \cdot \cdot,M_{c}$ in this way all $\beta_{0i}$ are normalized to 1 as one can see in (\ref{eq:2}). Assuming that N is even we need N delay elements, (N+1) multiplications and N additions, for computing each output value.
+where $G=\beta_{01}\beta_{02} \cdot\cdot\cdot\beta_{0M_{c}}$ ,$\beta_{1i}'=\beta_{1i}/\beta_{0i}$ , $i= 1,2,\cdot \cdot \cdot,M_{c}$ in this way all $\beta_{0i}$ are normalized to 1 as one can see in (Equation \ref{eq:2}). Assuming that N is even we need N delay elements, (N+1) multiplications and N additions, for computing each output value.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.35]{images/cascadeoptimised.jpg}    

@@ -1,13 +1,13 @@
 \section{Implemented Architecture}
-After analyzing the different architectures the transposed form was implemented due to its overall realization simplicity and it is the architecture that has the shortest path registry-logic-registry hence it permits to reduce the timing on the critical path and increase the clock frequency reachable when the VHDL code will be mapped on FPGA. A drawback w.r.t. the direct form is that this solution brings a higher latency for the input data that will have to traverse the entire registry chain, nevertheless once the nework is at regime it will output new data per each clock cycle.
+After analyzing the different architectures, the transposed form was implemented due to its overall realization simplicity and because it is the architecture that has the shortest path registry-logic-registry. Hence it permits to reduce the timing on the critical path and increase the clock frequency reachable when the VHDL code will be mapped on FPGA. A drawback w.r.t. the direct form is that this solution brings a higher latency for the input data, that will have to traverse the entire registry chain, nevertheless once the nework is at regime it will output new data per each clock cycle.
 \section{Integer conversion}
-The coefficients that are doubles had to be converted to integer on 16 bits through the following script:
+The coefficients that are doubles were converted to integer on 16 bits through a quantization process perfored by the following script:
 \lstinputlisting{../Matlab/coeff_script.m}
 \subsection{Output size}
 \label{sec:sizing}
 To realize the transposed architecture the result had to be sized:
 \begin{equation}
-	\left \lceil log_2(2^{b-1})*\sum_{i=0}^{N} coeff_i\right \rceil	+1
 	\label{eq:size}
+	\left \lceil log_2(2^{b-1})*\sum_{i=0}^{N} coeff_i\right \rceil	+1
 \end{equation}
 Equation \ref{eq:size} returned a value for the output dimension of 32 bits.
