@@ -4,7 +4,7 @@ For the hardware implementation of the project Vivado software by Xilinx was use
 \subsection{RTL Design}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{./images/schematic.PNG}
+  \includegraphics[width=0.5\linewidth]{./images/schematic.PNG}
   \caption{RTL design from vivado}
   \label{fig:schematic}
 \end{figure}
@@ -45,7 +45,7 @@ Figure \ref{fig:utilization} shows how the most widely used resource is the I/O 
 Vivado shows how the critical path includes the sum and multiplication operation from the output of a registry till the input to the next registry.
  \begin{figure}[H]
    \centering
-   \includegraphics[width=0.9\linewidth]{./images/critical}
+   \includegraphics[width=0.5\linewidth]{./images/critical}
    \caption{Critical path highlighted by vivado}
    \label{fig:critical}
  \end{figure}
@@ -57,8 +57,6 @@ From the timing report a positive Worst Negative Slack suggests that the circuit
 	\label{eq:fmax}
 \end{equation}
 Equation \ref{eq:fmax} states that the maximum frequency at which the clock can be guided is 260 Mhz.
-% subsection maximum_operating_frequency (end)
 
-% subsection critical_path (end)
 \section{Implementation}
 The implementation was carried out without any warning. The data reported by the implementation confirm the conclusion derived in the synthesis step with slight differences such as the fact that the worst negative slack is now of $6.017ns$ hence the circuit has a maximum operating frequency of $251.1Mhz$ due to I/O ports being actually assigned and this brings some delay. 

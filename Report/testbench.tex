@@ -10,4 +10,13 @@ To stress out the size limits computed in section \ref{sec:sizing} the filter ha
   \label{fig:32768}
 \end{figure}
 The network at regime settles to 1073938432 that corresponds to the value returned by Matlab.
-\subsection{Cut-off frequency}
+\subsection{Prove of correctness}
+In order to check if the filter performed the convolution expressed in equation \ref{eq:general} a random input was tested and compared against the output of matlab performing the same operation. The results once the network is at regime are matched by the output produced by matlab.
+\subsection{Filtering}
+As input to the network a square wave was given as input with a period of 14 samples. In Figure \ref{fig:filt} the effect of filtering is highlighted where the first harmonic frequency is kept while others are cut converging in a sine wave.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{./images/filtered}
+  \caption{Filtered signal in red, input signal in blue}
+  \label{fig:filt}
+\end{figure}
