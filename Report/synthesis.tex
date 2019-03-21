@@ -1,19 +1,19 @@
 \section{Synthesis} % (fold)
-For the hardware implementation of the project Vivado software by Xilinx was used. This software enabled to map the VHDL code on Zynq-7000 board. To reach the final implementation and discover the maximum operating frequency the typical flow of Vivado was followed i.e. from VHDL code to RTL analysis, synthesis and as last implementation.
+The hardware implementation of the project was carried out with the help of Vivado software by Xilinx. This software enabled to map the VHDL code on Zynq-7000 board. To reach the final implementation and discover the maximum operating frequency the typical flow of Vivado was followed i.e. from VHDL code to RTL analysis, synthesis and as last implementation.
 \label{sec:synthesis_and_implementation}
 \subsection{RTL Design}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\linewidth]{./images/schematic.PNG}
+  \includegraphics[width=0.7\linewidth]{./images/schematic.PNG}
   \caption{RTL design from vivado}
   \label{fig:schematic}
 \end{figure}
 \subsection{Synthesis}
-A clock period of 10 ns was set. The synthesis was carried without any kind of warnings displayed.\\
+A clock period of 10 ns was set.
 
 \subsubsection{Timing report} % (fold)
 \label{ssub:timing_report}
-Timing report is fine and states that all constraints are met:
+Timing report was fine and confirmed that all constraints are met:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{./images/timing.PNG}
@@ -42,7 +42,7 @@ Timing report is fine and states that all constraints are met:
 Figure \ref{fig:utilization} shows how the most widely used resource is the I/O this derives from the fact that the circuit has 16 bit inputs and a 32 bit output.
 \subsection{Critical path} % (fold)
 \label{sub:critical_path}
-Vivado shows how the critical path includes the sum and multiplication operation from the output of a registry till the input to the next registry.
+Vivado shows how the critical path includes the sum and multiplication operation from the output of a registry till the input of the next registry.
  \begin{figure}[H]
    \centering
    \includegraphics[width=0.5\linewidth]{./images/critical}
@@ -59,4 +59,11 @@ From the timing report a positive Worst Negative Slack suggests that the circuit
 Equation \ref{eq:fmax} states that the maximum frequency at which the clock can be guided is 260 Mhz.
 
 \section{Implementation}
-The implementation was carried out without any warning. The data reported by the implementation confirm the conclusion derived in the synthesis step with slight differences such as the fact that the worst negative slack is now of $6.017ns$ hence the circuit has a maximum operating frequency of $251.1Mhz$ due to I/O ports being actually assigned and this brings some delay. 
+The implementation was carried out without any warning. The data reported by the implementation confirms the conclusion derived from the synthesis step with slight differences such as the fact that the worst negative slack is now of $6.017ns$ hence the circuit has a maximum operating frequency of $251.1Mhz$ due to I/O ports being actually assigned and this brings some delay. 
+
+ \begin{figure}[H]
+   \centering
+   \includegraphics[width=0.5\linewidth]{./images/board}
+   \caption{MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM}
+   \label{fig:board}
+ \end{figure}
