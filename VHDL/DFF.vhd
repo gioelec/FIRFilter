@@ -18,14 +18,14 @@ signal qt : signed(2*N-1 downto 0) := (others => '0');  -- signal linking input 
 
 begin 
 
-Q <= qt;                                    -- link output and signal 
+Q <= qt;                                    -- Link output and signal 
 
 process(Clk,Reset) 
 begin 
 	if Reset = '1' then
-		qt <= (others=> '0');                   -- on reset zero the signal
+		qt <= (others=> '0');                   -- On reset zero the signal
   elsif ( rising_edge(Clk) ) then 
-    	qt <= D;                              -- on each rising edge if reset is not active sample the input
+    	qt <= D;                              -- On each rising edge if reset is not active sample the input
 	end if;
 end process; 
 
