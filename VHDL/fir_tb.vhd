@@ -1,15 +1,12 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.ALL;
-use std.textio.all;  --include package textio.vhd
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use work.my_types.all;
+use std.textio.all;  
 use ieee.std_logic_textio.all;
 
 
 ENTITY tb IS
-  generic (
-    constant N: integer := 16;      -- number of bits of the input data and coefficients
-    constant taps: integer := 7     -- number of taps of the filter
-  );
 END tb;
 
 ARCHITECTURE behavior OF tb IS 
@@ -41,25 +38,25 @@ BEGIN
     
    -- Stimulus process
    stim_proc: process
-      variable v_ILINE     : line;          -- input line for reading from file
-      variable v_OLINE     : line;          -- output line for writing on file
-      variable v_INPUT     : integer;       -- variable representing the number read from ILINE
-      variable i           : integer:=0;    -- variable used in the loop 
+      variable v_ILINE     : line;          -- Input line for reading from file
+      variable v_OLINE     : line;          -- Output line for writing on file
+      variable v_INPUT     : integer;       -- Variable representing the number read from ILINE
+      variable i           : integer:=0;    -- Variable used in the loop 
    begin
       file_open(infile, "C:\Users\gioel\OneDrive\Desktop\FIRFilter\IO\input_vectors.txt",  read_mode);
       file_open(outfile, "C:\Users\gioel\OneDrive\Desktop\FIRFilter\IO\output_results.txt", write_mode);
    
-      Reset <= '1', '0' after 10 ns; --initialize the process with representing
+      Reset <= '1', '0' after 10 ns;          -- Initialize the process with representing
       wait for Clk_period*2;
-      while not endfile(infile) loop --read for each loop one new value from file
+      while not endfile(infile) loop          -- Read for each loop one new value from file
         readline(infile, v_ILINE);
         read(v_ILINE, v_INPUT);   
-        X <= to_signed(v_INPUT,N);  --input the filter with new data read from file
+        X <= to_signed(v_INPUT,N);            -- Input the filter with new data read from file
         wait for clk_period*1;
         write(v_OLINE,to_integer(signed(Y)));
-        writeline(outfile,v_OLINE); --output the new data
+        writeline(outfile,v_OLINE);           -- Output the new data
       end loop;
-      -- last output data are voluntarily ignored, they would be the result of supposing 0 as input
+      -- Last output data are voluntarily ignored, they would be the result of supposing 0 as input
       file_close(infile);
       file_close(outfile);
       wait;
