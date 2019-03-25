@@ -1,5 +1,5 @@
 \section{Synthesis} % (fold)
-The hardware implementation of the project was carried out with the help of Vivado software by Xilinx. This software enabled to map the VHDL code on Zynq-7000 board. To reach the final implementation and discover the maximum operating frequency the typical flow of Vivado was followed i.e. from VHDL code to RTL analysis, synthesis and as last implementation.
+The hardware implementation of the project was carried out with the help of Vivado software by Xilinx. This software permits to map the VHDL code on Zynq-7000 board. To reach the final implementation and discover the maximum operating frequency the typical flow of Vivado was followed i.e. from VHDL code to RTL analysis, synthesis and as last implementation.
 \label{sec:synthesis_and_implementation}
 \subsection{RTL Design}
 \begin{figure}[H]
@@ -8,6 +8,7 @@ The hardware implementation of the project was carried out with the help of Viva
   \caption{RTL design from vivado}
   \label{fig:schematic}
 \end{figure}
+\clearpage
 \subsection{Synthesis}
 A clock period of 10 ns was set.
 
@@ -23,7 +24,8 @@ Timing report was fine and confirmed that all constraints are met:
 
 
 \subsubsection{Power report} % (fold)
-\label{ssub:power_report}
+The dynamic power used by the device is mostly required by I/O operations as expected, and by DSP that is used for additions and multiplications.
+\label{sub:power_report}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{./images/power.PNG}
@@ -39,16 +41,23 @@ Timing report was fine and confirmed that all constraints are met:
   \caption{Utilization summary from vivado}
   \label{fig:utilization}
 \end{figure}
-Figure \ref{fig:utilization} shows how the most widely used resource is the I/O this derives from the fact that the circuit has 16 bit inputs and a 32 bit output.
+Figure \ref{fig:utilization} shows how the most widely used resource is the I/O this derives from the fact that the circuit has 16 bit input and a 32 bit output.
 \subsection{Critical path} % (fold)
 \label{sub:critical_path}
 Vivado shows how the critical path includes the sum and multiplication operation from the output of a registry till the input of the next registry.
- \begin{figure}[H]
+  \begin{figure}[H]
    \centering
    \includegraphics[width=0.5\linewidth]{./images/critical}
    \caption{Critical path highlighted by vivado}
    \label{fig:critical}
- \end{figure}
+  \end{figure}
+  \begin{figure}[H]
+   \centering
+   \includegraphics[width=1\linewidth]{./images/crit_list}
+   \caption{Critical path list}
+   \label{fig:crit_list}
+  \end{figure}
+  
 \subsection{Maximum operating frequency} % (fold)
 \label{sub:maximum_operating_frequency}
 From the timing report a positive Worst Negative Slack suggests that the circuit is not operating at the maximum frequency possible.
@@ -64,6 +73,7 @@ The implementation was carried out without any warning. The data reported by the
  \begin{figure}[H]
    \centering
    \includegraphics[width=0.5\linewidth]{./images/board}
-   \caption{MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM}
+   \caption{Implementation design from Vivado on Zybo board}
    \label{fig:board}
  \end{figure}
+ From Figure \ref{fig:board} the high utilization I/O pads can be seen.
