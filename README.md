@@ -8,5 +8,6 @@ An implementation of a FIR filter in particular using the transposed form
   <li>Check <kbd> IO/output_results.txt </kbd> for the result</li>
 </ul>
 
-# Contributors
+
+# Contributors 
 [Gioele Carignani](https://github.com/gioelec/)<br>
