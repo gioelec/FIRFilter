@@ -43,8 +43,8 @@ BEGIN
       variable v_INPUT     : integer;       -- Variable representing the number read from ILINE
       variable i           : integer:=0;    -- Variable used in the loop 
    begin
-      file_open(infile, "C:\Users\gioel\OneDrive\Desktop\FIRFilter\IO\input_vectors.txt",  read_mode);
-      file_open(outfile, "C:\Users\gioel\OneDrive\Desktop\FIRFilter\IO\output_results.txt", write_mode);
+      file_open(infile, "C:\IO\input_vectors.txt",  read_mode);
+      file_open(outfile, "C:IO\output_results.txt", write_mode);
    
       Reset <= '1', '0' after 10 ns;          -- Initialize the process with representing
       wait for Clk_period*2;
