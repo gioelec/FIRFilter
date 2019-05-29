@@ -24,7 +24,7 @@ This structure is very similar at first look w.r.t. the previous one but in the 
     \label{fig:transposed}
 \end{figure}
 \subsection{Symmetric taps (linear phase)}
-FIR filters are often designed to have symmetry in the filter taps so exploit this symmetry can be exploited in order to reduce the number of multiplications.
+FIR filters are often designed to have symmetry in the filter taps so this symmetry can be exploited in order to reduce the number of multiplications.
 $$y[n]= c_{0}(x[n]+x[0])+c_{1}(x[n-1]+x[1])+....+c_{N/2}(x[N/2])$$
 The last term of the previous equation is needed only if N is even.
 With this type of implementation the number of multiplications is reduced to $\left \lfloor N/2+1 \right \rfloor$
