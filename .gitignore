@@ -1,5 +1,5 @@
 .asv
-*.txt
+IO/output_results.txt
 Report/out/*
 *.aux
 *.xml
