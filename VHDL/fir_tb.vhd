@@ -43,8 +43,9 @@ BEGIN
       variable v_INPUT     : integer;       -- Variable representing the number read from ILINE
       variable i           : integer:=0;    -- Variable used in the loop 
    begin
-      file_open(infile, "C:\IO\input_vectors.txt",  read_mode);
-      file_open(outfile, "C:IO\output_results.txt", write_mode);
+      -- insert your file paths here
+      file_open(infile, "D:\Users\Felix\Studium\Master Elektrotechnik\Module\Digitaler Schaltungsentwurf\DigitaleFilterInHardware\FIRFilter\IO\input_vectors.txt",  read_mode);
+      file_open(outfile, "D:\Users\Felix\Studium\Master Elektrotechnik\Module\Digitaler Schaltungsentwurf\DigitaleFilterInHardware\FIRFilter\IO\output_results.txt", write_mode);
    
       Reset <= '1', '0' after 10 ns;          -- Initialize the process with representing
       wait for Clk_period*2;
