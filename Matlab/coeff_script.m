@@ -62,4 +62,13 @@ grid on;
 figure(3)
 freqz(coeff,a,f,1/Ts);
 
-
+% plot input and output
+figure(4)
+tx = [1:length(x)];
+ty = [1:length(y)];
+subplot(2,1,1)
+plot(tx, x);
+title("input");
+subplot(2,1,2)
+plot(ty, y);
+title("ouput");
